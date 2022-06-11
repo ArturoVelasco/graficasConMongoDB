@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo de titulación</title>
+    <link rel="shortcut icon" href="assets/images/ipn.jpg" type="image/x-icon">
+
+    <!--Se añade la libreria de boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="assets/css/Graficas.css">
+
+</head>
+<body>
+    <!--Inicia el Encabezado usando NavBAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <a class="navbar-brand"><img src="assets/images/ipn.png" width="90" height="90" class="logo" alt=""> </a>
+        <div class="collapse navbar-collapse" id="navbarNav" >
+          <ul class="navbar-nav container d-flex flex-md-row text-center justify-content-md-between align-items-center">
+            <h1>Sistema IoT para la visualización de señales asociadas a precursores símicos </h1>
+            <li class="nav-item active">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <!--Termina el Encabezado-->
+
+
+    <!--Se utiliza dos columnas, una para el formulario y una para las gráficas-->
+    <div class="row g-0">
+        <div class="col-6 col-md-4" >
+            <h4>Interfaz local para graficas señales asociadas a precursores sísmicos</h4>
+            <br>
+            <br>
+            <!--Aqui inicia el Formulario-->
+            <form action="">
+                <!--Se dan las instrucciones-->
+                <p text>Selecciona las opciones de acuerdo a la gráfica que deseas ver</p>
+                <br>
+                <!---Se pide la fecha-->
+                <p>Fecha: <input type="date" name="fechaesperada"></p>
+                <br><br>
+
+                <!--Parte Electromagnética-->
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="elect" id="elect">
+                <label class="form-check-label" for="elect">
+                    Electromagnética
+                </label>
+                </div>
+                <div class="form-check">
+                <label><input type="radio" name="electromagnética" value="Ch1_elect" id="Ch1_Acus"> CH1</label><br>
+                <label><input type="radio" name="electromagnética" value="Ch2_elect" id="Ch2_Acus"> CH2</label><br>
+                <label><input type="radio" name="electromagnética" value="Ch3_elect" id="Ch3_Acus" checked> CH3</label>
+                </div>
+                <br><br>
+
+                <!--Parte de Acusticas-->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Acus" id="acusticas">
+                    <label class="form-check-label" for="acusticas">
+                        Acústicas
+                    </label>
+                </div>
+                <div class="form-check">
+                <label><input type="radio" name="contacto" value="Ch1_Acus" id="Ch1_Acus"> CH1</label><br>
+                <label><input type="radio" name="contacto" value="Ch2_Acus" id="Ch2_Acus"> CH2</label><br>
+                <label><input type="radio" name="contacto" value="Ch3_Acus" id="Ch3_Acus" checked> CH3</label>
+                </div>
+                <br><br>
+
+
+                    <!--Parte de Geoeléctrica-->
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="geoelectrica" id="geoelectrica">
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                        Geoeléctrica
+                    </label>
+                    </div>
+                
+                <br>
+                <br>
+                <!--Boton de Enviar Info-->
+                <div class="container-fluid">
+                    <input type="submit" value="Enviar" class="btn btn-primary" id="Enviar">
+                </div>
+                <!--Aqui termina el Formulario-->
+            </form>
+        </div>
+        <!--Aqui termina la primera columna -->
+
+        <!--Aqui inicia la segunda columna (Graficas)-->
+
+        <div class="col-sm-6 col-md-8">
+            <br>
+            <!--Aqui inicia la Primer Tabla-->
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['line']});
+                google.charts.setOnLoadCallback(drawChart);
+          
+              function drawChart() {
+          
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'Day');
+                data.addColumn('number', 'Guardians of the Galaxy');
+                data.addColumn('number', 'The Avengers');
+                data.addColumn('number', 'Transformers: Age of Extinction');
+          
+                data.addRows([
+                  [1,  37.8, 80.8, 41.8],
+                  [2,  30.9, 69.5, 32.4],
+                  [3,  25.4,   57, 25.7],
+                  [4,  11.7, 18.8, 10.5],
+                  [5,  11.9, 17.6, 10.4],
+                  [6,   8.8, 13.6,  7.7],
+                  [7,   7.6, 12.3,  9.6],
+                  [8,  12.3, 29.2, 10.6],
+                  [9,  16.9, 42.9, 14.8],
+                  [10, 12.8, 30.9, 11.6],
+                  [11,  5.3,  7.9,  4.7],
+                  [12,  6.6,  8.4,  5.2],
+                  [13,  4.8,  6.3,  3.6],
+                  [14,  4.2,  6.2,  3.4]
+                ]);
+          
+                var options = {
+                  chart: {
+                    title: 'Box Office Earnings in First Two Weeks of Opening',
+                    subtitle: 'in millions of dollars (USD)'
+                  },
+                  width: 900,
+                  height: 500,
+                  axes: {
+                    x: {
+                      0: {side: 'top'}
+                    }
+                  }
+                };
+          
+                var chart = new google.charts.Line(document.getElementById('line_top_x'));
+          
+                chart.draw(data, google.charts.Line.convertOptions(options));
+              }
+            </script>
+            <div id="line_top_x"></div>
+            <br>
+            <!--Aqui termina la Primer Tabla-->
+
+            <!--Aqui esta la segunda tabla-->
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['line']});
+                google.charts.setOnLoadCallback(drawChart2);
+          
+              function drawChart2() {
+          
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'Day');
+                data.addColumn('number', 'Guardians of the Galaxy');
+                data.addColumn('number', 'The Avengers');
+                data.addColumn('number', 'Transformers: Age of Extinction');
+          
+                data.addRows([
+                  [1,  37.8, 80.8, 41.8],
+                  [2,  30.9, 69.5, 32.4],
+                  [3,  25.4,   57, 25.7],
+                  [4,  11.7, 18.8, 10.5],
+                  [5,  11.9, 17.6, 10.4],
+                  [6,   8.8, 13.6,  7.7],
+                  [7,   7.6, 12.3,  9.6],
+                  [8,  12.3, 29.2, 10.6],
+                  [9,  16.9, 42.9, 14.8],
+                  [10, 12.8, 30.9, 11.6],
+                  [11,  5.3,  7.9,  4.7],
+                  [12,  6.6,  8.4,  5.2],
+                  [13,  4.8,  6.3,  3.6],
+                  [14,  4.2,  6.2,  3.4]
+                ]);
+          
+                var options = {
+                  chart: {
+                    title: 'Box Office Earnings in First Two Weeks of Opening',
+                    subtitle: 'in millions of dollars (USD)'
+                  },
+                  width: 900,
+                  height: 500,
+                  axes: {
+                    x: {
+                      0: {side: 'top'}
+                    }
+                  }
+                };
+          
+                var chart = new google.charts.Line(document.getElementById('line_top_2'));
+          
+                chart.draw(data, google.charts.Line.convertOptions(options));
+              }
+            </script>
+            <div id="line_top_2"></div>
+            <br>
+            <!--Aqui termina la segunda tabla-->
+
+            <!--Aqui Inicia la Tercera Tabla-->
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['line']});
+                google.charts.setOnLoadCallback(drawChart3);
+          
+              function drawChart3() {
+          
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'Day');
+                data.addColumn('number', 'Guardians of the Galaxy');
+                data.addColumn('number', 'The Avengers');
+                data.addColumn('number', 'Transformers: Age of Extinction');
+          
+                data.addRows([
+                  [1,  37.8, 80.8, 41.8],
+                  [2,  30.9, 69.5, 32.4],
+                  [3,  25.4,   57, 25.7],
+                  [4,  11.7, 18.8, 10.5],
+                  [5,  11.9, 17.6, 10.4],
+                  [6,   8.8, 13.6,  7.7],
+                  [7,   7.6, 12.3,  9.6],
+                  [8,  12.3, 29.2, 10.6],
+                  [9,  16.9, 42.9, 14.8],
+                  [10, 12.8, 30.9, 11.6],
+                  [11,  5.3,  7.9,  4.7],
+                  [12,  6.6,  8.4,  5.2],
+                  [13,  4.8,  6.3,  3.6],
+                  [14,  4.2,  6.2,  3.4]
+                ]);
+          
+                var options = {
+                  chart: {
+                    title: 'Box Office Earnings in First Two Weeks of Opening',
+                    subtitle: 'in millions of dollars (USD)'
+                  },
+                  width: 900,
+                  height: 500,
+                  axes: {
+                    x: {
+                      0: {side: 'top'}
+                    }
+                  }
+                };
+          
+                var chart = new google.charts.Line(document.getElementById('line_top_3'));
+          
+                chart.draw(data, google.charts.Line.convertOptions(options));
+              }
+            </script>
+            <div id="line_top_3"></div>
+            <br>
+            <!--Aqui termina la Tercer Tabla-->
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
