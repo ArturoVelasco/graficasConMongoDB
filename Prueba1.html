@@ -35,50 +35,48 @@
             <br>
             <br>
             <!--Aqui inicia el Formulario-->
-            <form action="">
+            <form id="form">
                 <!--Se dan las instrucciones-->
                 <p text>Selecciona las opciones de acuerdo a la gráfica que deseas ver</p>
                 <br>
                 <!---Se pide la fecha-->
-                <p>Fecha: <input type="date" name="fechaesperada"></p>
+                <p>Fecha: <input type="date" class="fechaesperada" name="fechaesperada" required></p>
+                
                 <br><br>
 
                 <!--Parte Electromagnética-->
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="elect" id="elect">
-                <label class="form-check-label" for="elect">
-                    Electromagnética
-                </label>
+                <div>
+                 <p>Electromagnéticas</p><br>
                 </div>
                 <div class="form-check">
-                <label><input type="radio" name="electromagnética" value="Ch1_elect" id="Ch1_Acus"> CH1</label><br>
-                <label><input type="radio" name="electromagnética" value="Ch2_elect" id="Ch2_Acus"> CH2</label><br>
-                <label><input type="radio" name="electromagnética" value="Ch3_elect" id="Ch3_Acus" checked> CH3</label>
+                <label><input type="radio" name="electrom" value="Ch1" id="Ch1_Acus"> CH1</label><br>
+                <label><input type="radio" name="electrom" value="Ch2" id="Ch2_Acus"> CH2</label><br>
+                <label><input type="radio" name="electrom" value="Ch3" id="Ch3_Acus" checked> CH3</label><br>
+                <label><input type="radio" name="electrom" value="Clear" id="Clear"> Clear</label>
                 </div>
                 <br><br>
 
                 <!--Parte de Acusticas-->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Acus" id="acusticas">
-                    <label class="form-check-label" for="acusticas">
-                        Acústicas
-                    </label>
+                <div>
+                  <p>Acusticas</p><br>
                 </div>
-                <div class="form-check">
-                <label><input type="radio" name="contacto" value="Ch1_Acus" id="Ch1_Acus"> CH1</label><br>
-                <label><input type="radio" name="contacto" value="Ch2_Acus" id="Ch2_Acus"> CH2</label><br>
-                <label><input type="radio" name="contacto" value="Ch3_Acus" id="Ch3_Acus" checked> CH3</label>
+                <div class="form-check2">
+                <label><input type="radio" name="acustica" value="Ch4" id="Ch1_Acus"> CH1</label><br>
+                <label><input type="radio" name="acustica" value="Ch5" id="Ch2_Acus"> CH2</label><br>
+                <label><input type="radio" name="acustica" value="Ch6" id="Ch3_Acus" checked> CH3</label><br>
+                <label><input type="radio" name="acustica" value="Clear" id="Clear"> Clear</label>
                 </div>
                 <br><br>
 
 
                     <!--Parte de Geoeléctrica-->
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="geoelectrica" id="geoelectrica">
-                    <label class="form-check-label" for="flexCheckIndeterminate">
-                        Geoeléctrica
-                    </label>
-                    </div>
+                <div>
+                  <p>Geoelectricas</p><br>
+                </div>
+                <div class="form-check3">
+                  <label><input type="radio" name="geo" value="electricas" id="Ch1_geo"> CH1</label><br>
+                  <label><input type="radio" name="geo" value="Clear" id="Clear"> Clear</label>
+                  </div>
                 
                 <br>
                 <br>
@@ -103,32 +101,34 @@
               function drawChart() {
           
                 var data = new google.visualization.DataTable();
-                data.addColumn('number', 'Day');
-                data.addColumn('number', 'Guardians of the Galaxy');
-                data.addColumn('number', 'The Avengers');
-                data.addColumn('number', 'Transformers: Age of Extinction');
+                data.addColumn('number',  'Fecha');
+                data.addColumn('number', 'Señal 1');
+                data.addColumn('number', 'Señal 2');
+                data.addColumn('number', 'Señal 3');
+                data.addColumn('number', 'Señal 4');
+                data.addColumn('number', 'Señal 5');
+
           
                 data.addRows([
-                  [1,  37.8, 80.8, 41.8],
-                  [2,  30.9, 69.5, 32.4],
-                  [3,  25.4,   57, 25.7],
-                  [4,  11.7, 18.8, 10.5],
-                  [5,  11.9, 17.6, 10.4],
-                  [6,   8.8, 13.6,  7.7],
-                  [7,   7.6, 12.3,  9.6],
-                  [8,  12.3, 29.2, 10.6],
-                  [9,  16.9, 42.9, 14.8],
-                  [10, 12.8, 30.9, 11.6],
-                  [11,  5.3,  7.9,  4.7],
-                  [12,  6.6,  8.4,  5.2],
-                  [13,  4.8,  6.3,  3.6],
-                  [14,  4.2,  6.2,  3.4]
-                ]);
+                  [1,  37.8, 80.8, 41.8, 47, 41.8],
+                  [2,  30.9, 69.5, 32.4, 37, 69.5],
+                  [3,  25.4,   57, 25.7, 17, 56],
+                  [4,  11.7, 18.8, 10.5, 7, 56],
+                  [5,  11.9, 17.6, 10.4, 47, 56],
+                  [6,   8.8, 13.6,  7.7, 47, 56],
+                  [7,   7.6, 12.3,  9.6, 47, 56],
+                  [8,  12.3, 29.2, 10.6, 7, 56],
+                  [9,  16.9, 42.9, 14.8, 27, 56],
+                  [10, 12.8, 30.9, 11.6, 7, 56],
+                  [11,  5.3,  7.9,  4.7, 17,4.7],
+                  [12,  6.6,  8.4,  5.2, 7, 5.6],
+                  [13,  4.8,  6.3,  3.6, 4, 3.6],
+                  [14,  4.2,  6.2,  3.4, 4.7, 5.6]
+                ]); 
           
                 var options = {
                   chart: {
-                    title: 'Box Office Earnings in First Two Weeks of Opening',
-                    subtitle: 'in millions of dollars (USD)'
+                    title: 'Gráfica de la señal electromagnética',
                   },
                   width: 900,
                   height: 500,
@@ -156,32 +156,33 @@
               function drawChart2() {
           
                 var data = new google.visualization.DataTable();
-                data.addColumn('number', 'Day');
-                data.addColumn('number', 'Guardians of the Galaxy');
-                data.addColumn('number', 'The Avengers');
-                data.addColumn('number', 'Transformers: Age of Extinction');
+                data.addColumn('number', 'Fecha');
+                data.addColumn('number', 'Señal 1');
+                data.addColumn('number', 'Señal 2');
+                data.addColumn('number', 'Señal 3');
+                data.addColumn('number', 'Señal 4');
+                data.addColumn('number', 'Señal 5');
+
           
                 data.addRows([
-                  [1,  37.8, 80.8, 41.8],
-                  [2,  30.9, 69.5, 32.4],
-                  [3,  25.4,   57, 25.7],
-                  [4,  11.7, 18.8, 10.5],
-                  [5,  11.9, 17.6, 10.4],
-                  [6,   8.8, 13.6,  7.7],
-                  [7,   7.6, 12.3,  9.6],
-                  [8,  12.3, 29.2, 10.6],
-                  [9,  16.9, 42.9, 14.8],
-                  [10, 12.8, 30.9, 11.6],
-                  [11,  5.3,  7.9,  4.7],
-                  [12,  6.6,  8.4,  5.2],
-                  [13,  4.8,  6.3,  3.6],
-                  [14,  4.2,  6.2,  3.4]
-                ]);
-          
+                  [1,  37.8, 80.8, 41.8, 47, 41.8],
+                  [2,  30.9, 69.5, 32.4, 37, 69.5],
+                  [3,  25.4,   57, 25.7, 17, 56],
+                  [4,  11.7, 18.8, 10.5, 7, 56],
+                  [5,  11.9, 17.6, 10.4, 47, 56],
+                  [6,   8.8, 13.6,  7.7, 47, 56],
+                  [7,   7.6, 12.3,  9.6, 47, 56],
+                  [8,  12.3, 29.2, 10.6, 7, 56],
+                  [9,  16.9, 42.9, 14.8, 27, 56],
+                  [10, 12.8, 30.9, 11.6, 7, 56],
+                  [11,  5.3,  7.9,  4.7, 17,4.7],
+                  [12,  6.6,  8.4,  5.2, 7, 5.6],
+                  [13,  4.8,  6.3,  3.6, 4, 3.6],
+                  [14,  4.2,  6.2,  3.4, 4.7, 5.6]
+                ]); 
                 var options = {
                   chart: {
-                    title: 'Box Office Earnings in First Two Weeks of Opening',
-                    subtitle: 'in millions of dollars (USD)'
+                    title: 'Gráfica de la señal acustica',
                   },
                   width: 900,
                   height: 500,
@@ -205,36 +206,35 @@
             <script type="text/javascript">
                 google.charts.load('current', {'packages':['line']});
                 google.charts.setOnLoadCallback(drawChart3);
-          
+         
               function drawChart3() {
           
                 var data = new google.visualization.DataTable();
-                data.addColumn('number', 'Day');
-                data.addColumn('number', 'Guardians of the Galaxy');
-                data.addColumn('number', 'The Avengers');
-                data.addColumn('number', 'Transformers: Age of Extinction');
-          
+                data.addColumn('number', 'Fecha');
+                data.addColumn('number', 'Señal 1');
+            
+                
                 data.addRows([
-                  [1,  37.8, 80.8, 41.8],
-                  [2,  30.9, 69.5, 32.4],
-                  [3,  25.4,   57, 25.7],
-                  [4,  11.7, 18.8, 10.5],
-                  [5,  11.9, 17.6, 10.4],
-                  [6,   8.8, 13.6,  7.7],
-                  [7,   7.6, 12.3,  9.6],
-                  [8,  12.3, 29.2, 10.6],
-                  [9,  16.9, 42.9, 14.8],
-                  [10, 12.8, 30.9, 11.6],
-                  [11,  5.3,  7.9,  4.7],
-                  [12,  6.6,  8.4,  5.2],
-                  [13,  4.8,  6.3,  3.6],
-                  [14,  4.2,  6.2,  3.4]
+                  [1,  37.8],
+                  [2,  30.9],
+                  [3,  25.4],
+                  [4,  11.7],
+                  [5,  11.9],
+                  [6,   8.8],
+                  [7,   7.6],
+                  [8,  12.3],
+                  [9,  16.9],
+                  [10, 12.8],
+                  [11,  5.3],
+                  [12,  6.6],
+                  [13,  4.8],
+                  [14,  4.2 ]
                 ]);
           
                 var options = {
                   chart: {
-                    title: 'Box Office Earnings in First Two Weeks of Opening',
-                    subtitle: 'in millions of dollars (USD)'
+                    title: 'Gráfica de la señal Geo eléctrica',
+          
                   },
                   width: 900,
                   height: 500,
@@ -253,7 +253,9 @@
             <div id="line_top_3"></div>
             <br>
             <!--Aqui termina la Tercer Tabla-->
-
+      
+      <script src="/assets/js/mongoDB.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      <script src="https://momentjs.com/downloads/moment.js"></script>
 </body>
 </html>

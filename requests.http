@@ -1,0 +1,25 @@
+###
+//Se creo la peticion Post dentro de la DB llamada Channels e introduce la info a la nuve.
+//Lo podemos ver en https://cloud.mongodb.com/v2/6291619b5cf1677aa5e684cc#metrics/replicaSet/62916235c764b113768bb081/explorer/test/channels/find
+
+POST http://localhost:9000/api/channels HTTP/1.1
+Content-Type: application/json
+
+{
+    "Fecha" : "12-01-2022",
+    "Hora" : "22:00:22:12",
+    "Name" : "Ch344",
+    "IntegralBanda1" : "0",
+    "IntegralBanda2" : "34",
+    "IntegralBanda3" : "10",
+    "IntegralBanda4" : "1998",
+    "IntegralBanda5" : "0"
+}
+
+###
+
+//Pide Todos los datos que estan en channels
+GET http://localhost:9000/api/channels HTTP/1.1
+
+###
+GET http://localhost:9000/api/channels/Ch3 HTTP/1.1
